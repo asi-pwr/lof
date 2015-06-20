@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
-gem 'sqlite3'
+gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -15,6 +15,10 @@ gem 'unicorn'
 gem 'slim-rails'
 gem 'annotate', '~> 2.6.6'
 gem 'yard'
+gem 'ancestry'
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-persistence'
 
 group :development, :test do
   gem 'pry-byebug'
