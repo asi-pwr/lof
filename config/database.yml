@@ -1,11 +1,15 @@
-development:
+default: &default
   adapter: postgresql
+  timeout: 5000
   encoding: unicode
-  database: lof_development
   pool: 5
+  username: postgres
+  host: db
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: lof_test
-  pool: 5
+
+development:
+  <<: *default
+  database: lof_development
