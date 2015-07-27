@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Container.create(name: 'Śruby, gwoździe i nakrętki', description: 'Kontener na tonę gwoździ')
+Container.create(name: 'Tranzystory', description: 'Bramki, zwory, tranzystory')

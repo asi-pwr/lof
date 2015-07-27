@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'containers#index'
   
-  resources :containers, only: [:index, :show]
+  resources :containers, only: [:index, :show, :new]
 end
