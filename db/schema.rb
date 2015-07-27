@@ -18,16 +18,21 @@ ActiveRecord::Schema.define(version: 20150620224138) do
   enable_extension "hstore"
 
   create_table "containers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "ancestry"
   end
 
   add_index "containers", ["ancestry"], name: "index_containers_on_ancestry", using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                     null: false
+    t.integer  "quantity",     default: 0, null: false
+    t.integer  "container_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

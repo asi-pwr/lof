@@ -3,8 +3,6 @@ default: &default
   timeout: 5000
   encoding: unicode
   pool: 5
-  username: postgres
-  host: db
 
 test:
   <<: *default
