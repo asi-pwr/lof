@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: trigrams
+#
+#  id          :integer          not null, primary key
+#  trigram     :string(3)
+#  score       :integer
+#  owner_id    :integer
+#  owner_type  :string
+#  fuzzy_field :string
+#
+# Indexes
+#
+#  index_by_owner   (owner_id,owner_type)
+#  index_for_match  (owner_id,owner_type,fuzzy_field,trigram,score)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

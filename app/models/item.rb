@@ -12,4 +12,6 @@
 
 class Item < ActiveRecord::Base
   belongs_to :container
+
+  fuzzily_searchable :name
 end
