@@ -16,9 +16,7 @@ gem 'slim-rails'
 gem 'annotate', '~> 2.6.6'
 gem 'yard'
 gem 'ancestry'
-gem 'elasticsearch-rails'
-gem 'elasticsearch-model'
-gem 'elasticsearch-persistence'
+gem 'fuzzily'
 
 group :development, :test do
   gem 'pry-byebug'
