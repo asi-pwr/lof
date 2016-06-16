@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616140713) do
+ActiveRecord::Schema.define(version: 20160616143810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+  enable_extension "citext"
 
   create_table "containers", force: :cascade do |t|
     t.string   "name",        null: false
@@ -28,15 +29,15 @@ ActiveRecord::Schema.define(version: 20160616140713) do
   add_index "containers", ["ancestry"], name: "index_containers_on_ancestry", using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",                     null: false
-    t.integer  "quantity",     default: 0, null: false
+    t.string   "name",                      null: false
+    t.integer  "quantity",     default: 0,  null: false
     t.integer  "container_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.hstore   "attributes"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.jsonb    "attributes",   default: {}, null: false
   end
 
-  add_index "items", ["attributes"], name: "index_items_on_attributes", using: :gist
+  add_index "items", ["attributes"], name: "index_items_on_attributes", using: :gin
 
   create_table "trigrams", force: :cascade do |t|
     t.string  "trigram",     limit: 3
