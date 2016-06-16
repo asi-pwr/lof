@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616143810) do
+ActiveRecord::Schema.define(version: 20160616151806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20160616143810) do
     t.integer  "container_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.jsonb    "attributes",   default: {}, null: false
+    t.jsonb    "features",     default: {}, null: false
   end
 
-  add_index "items", ["attributes"], name: "index_items_on_attributes", using: :gin
+  add_index "items", ["features"], name: "index_items_on_features", using: :gin
 
   create_table "trigrams", force: :cascade do |t|
     t.string  "trigram",     limit: 3
