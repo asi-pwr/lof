@@ -1,3 +1,10 @@
-h3= link_to container.name, container_path(container.id)
-
-h5= container.description
+= form_for @container do |f|
+  = f.label :name
+   
+  = f.text_field :name
+  br
+  = f.label :description
+  
+  = f.text_field :description
+  br
+  = f.submit
