@@ -1,7 +1,18 @@
+h3= t('containers.title')
 h3= @container.name
+h5= t('containers.description')
+h3= @container.description
 
-h5= t('containers.title')
+
+
 = render @containers
 h5= t('items.title')
 = render @items
+
+= link_to "edit", edit_container_path(@container)
+
+= link_to "back", containers_path
+
+= link_to "destroy", @container, :method => :delete, :data => { :confirm => 'Are you sure ?' }
+
 
