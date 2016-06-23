@@ -20,8 +20,14 @@ gem 'fuzzily'
 
 group :development, :test do
   gem 'pry-byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails'
+
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 
 source 'https://rails-assets.org' do
