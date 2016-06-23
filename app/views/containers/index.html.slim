@@ -1,3 +1,20 @@
-h3=t('containers.title')
+h1= "Containers"
 
-= render @containers
+table.table.table-striped.table-hover
+  thead
+    tr
+      th= Container.human_attribute_name("name")
+      th= Container.human_attribute_name("description")
+      
+      
+  tbody
+    - @containers.each do |container|
+      tr
+        td= link_to container.name, container
+        td= container.description
+        td= link_to "edit", edit_container_path(container)
+        td= link_to "destroy", container, :method => :delete, :data => { :confirm => 'Are you sure ?' }
+
+br
+
+= link_to t("actions.new"), new_container_path
