@@ -1,13 +1,8 @@
-h3= t('containers.title')
-h3= @container.name
-h5= t('containers.description')
-h3= @container.description
+h2= @container.name
+h4= t('containers.description')
+h5= @container.description
 
-
-
-= render @containers
-h5= t('items.title')
-= render @items
+h5= render partial: "item", collection: @items
 
 = link_to "edit", edit_container_path(@container)
 

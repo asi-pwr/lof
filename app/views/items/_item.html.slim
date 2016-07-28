@@ -7,5 +7,9 @@
   
   = f.text_field :quantity
   br
+  = f.collection_select(:container_id, Container.all, :id, :name)
+
+  br
+
   = f.submit
 

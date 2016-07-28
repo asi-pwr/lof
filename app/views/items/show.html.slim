@@ -1,10 +1,11 @@
+h3= t('items.title')
 
 
+h3= t('items.title')
+h3= @item.name
+h5= t('items.quantity')
+h3= @item.quantity
 
-
-= render @item
-h5= t('items.title')
-= render @item
 
 = link_to "edit", edit_item_path(@item)
 
