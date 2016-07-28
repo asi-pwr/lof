@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 class ContainersController < ApplicationController
   before_action :set_container, only: [:show, :destroy, :edit, :update]
-  
+
   def index
     @containers = Container.roots
   end
@@ -17,21 +18,21 @@ class ContainersController < ApplicationController
   def create
     @container = Container.new(container_params)
     if @container.save
-      redirect_to @container     
+      redirect_to @container
     else
-      render :new 
+      render :new
     end
   end
-  
-  def edit 
+
+  def edit
   end
 
   def update
-      if @container.update(container_params)
+    if @container.update(container_params)
       redirect_to @container, notice: 'Container was successfully updated.'
-      else
-        render :edit 
-      end
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,17 +43,13 @@ class ContainersController < ApplicationController
     end
   end
 
-
-
   private
 
-    def container_params
-      params.require(:container).permit(:name, :description)
-    end
+  def container_params
+    params.require(:container).permit(:name, :description)
+  end
 
-    def set_container
-      @container = Container.find(params[:id]) 
-    end
-  
-end   
-
+  def set_container
+    @container = Container.find(params[:id])
+  end
+end
