@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -21,9 +22,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item, notice: 'Item was successfully updated.'
     else
@@ -32,6 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_path, notice: 'Item was successfully destroyed.' }
@@ -46,6 +50,6 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :quantity)
+    params.require(:item).permit(:name, :quantity, :container_id)
   end
 end
