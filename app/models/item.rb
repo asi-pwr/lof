@@ -18,6 +18,7 @@
 
 class Item < ActiveRecord::Base
   belongs_to :container
+  validates :name, presence: true
 
   fuzzily_searchable :name
 end
