@@ -1,12 +1,10 @@
+# frozen_string_literal: true
 class AddCitext < ActiveRecord::Migration
   def up
-  	enable_extension "citext"
+    enable_extension 'citext'
   end
 
   def down
-  	disable_extension "citext"
+    disable_extension 'citext'
   end
-  
 end
-
-

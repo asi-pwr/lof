@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 YARD::Rake::YardocTask.new do |t|
   t.files   = ['app/**.rb', 'lib/**/*.rb']
   t.options = []

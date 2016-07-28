@@ -42,13 +42,17 @@ class ContainersController < ApplicationController
     end
   end
 
+
+
   private
 
-  def container_params
-    params.require(:container).permit(:name, :description)
-  end
+    def container_params
+      params.require(:container).permit(:name, :description)
+    end
 
-  def set_container
-    @container = Container.find(params[:id]) 
-  end
+    def set_container
+      @container = Container.find(params[:id]) 
+    end
+  
 end   
+

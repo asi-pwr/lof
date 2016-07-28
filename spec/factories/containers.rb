@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: containers
@@ -16,6 +17,5 @@
 
 FactoryGirl.define do
   factory :container do
-    
   end
 end

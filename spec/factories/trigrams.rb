@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: trigrams
@@ -17,6 +18,5 @@
 
 FactoryGirl.define do
   factory :trigram do
-    
   end
 end

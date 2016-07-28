@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: items
@@ -18,9 +19,8 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-	it "can be created" do
-     item = Item.new
-  	 expect(item).not_to be_nil
-    end
-
+  it 'can be created' do
+    item = Item.new
+    expect(item).not_to be_nil
+  end
 end

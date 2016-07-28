@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 class AddHstore < ActiveRecord::Migration
   def up
-    enable_extension "hstore"
+    enable_extension 'hstore'
   end
- 
+
   def down
-    disable_extension "hstore"
+    disable_extension 'hstore'
   end
 end

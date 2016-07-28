@@ -1,0 +1,15 @@
+
+
+
+
+= render @item
+h5= t('items.title')
+= render @item
+
+= link_to "edit", edit_item_path(@item)
+
+= link_to "back", items_path
+
+= link_to "destroy", @item, :method => :delete, :data => { :confirm => 'Are you sure ?' }
+
+

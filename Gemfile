@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
@@ -17,13 +18,13 @@ gem 'annotate', '~> 2.6.6'
 gem 'yard'
 gem 'ancestry'
 gem 'fuzzily'
+gem 'rubocop', require: false
 
 group :development, :test do
   gem 'pry-byebug'
   gem 'spring'
   gem 'rspec-rails', '~> 3.4'
   gem 'factory_girl_rails'
-
 end
 
 group :development do

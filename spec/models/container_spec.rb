@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: containers
@@ -14,13 +15,9 @@
 #  index_containers_on_ancestry  (ancestry)
 #
 
-
 RSpec.describe Container, type: :model do
-	it "can be created" do
-     container = Container.new
-  	 expect(container).not_to be_nil
-    end
-
+  it 'can be created' do
+    container = Container.new
+    expect(container).not_to be_nil
+  end
 end
-
-

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: trigrams
@@ -18,9 +19,8 @@
 require 'rails_helper'
 
 RSpec.describe Trigram, type: :model do
-	it "can be created" do
-     trigram = Trigram.new
-  	 expect(trigram).not_to be_nil
-    end
-
+  it 'can be created' do
+    trigram = Trigram.new
+    expect(trigram).not_to be_nil
+  end
 end
