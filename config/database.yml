@@ -1,7 +1,9 @@
 default: &default
   adapter: postgresql
-  host: localhost
-  port: 6666
+  host: <%= ENV["DB_HOST"] %>
+  port: <%= ENV["DB_PORT"] %>
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   timeout: 5000
   encoding: unicode
   pool: 5
@@ -9,11 +11,7 @@ default: &default
 test:
   <<: *default
   database: lof_test
-  username: lof
-  password: lof
 
 development:
   <<: *default
   database: lof_development
-  username: lof
-  password: lof
