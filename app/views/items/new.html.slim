@@ -1,1 +1,6 @@
 = render 'item'
+= if @item.errors.any?
+	ul
+		= @item.errors.full_messages.uniq.each do |msg|
+			li 
+				=msg

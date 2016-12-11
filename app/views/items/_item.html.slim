@@ -1,15 +1,21 @@
 = form_for @item do |f|
-  = f.label :name
-   
-  = f.text_field :name
-  br
-  = f.label :quantity
-  
-  = f.text_field :quantity
-  br
-  = f.collection_select(:container_id, Container.all, :id, :name)
+	= f.label :name
 
-  br
+	= f.text_field :name
+	br
+	= f.label :quantity
 
-  = f.submit
+	= f.text_field :quantity
+	br
+	= f.collection_select(:container_id, Container.all, :id, :name)
+
+	br
+
+	= f.submit
+	
+	= if @item.errors.any?
+		ul
+			= @item.errors.full_messages.uniq.each do |msg|
+				li 
+					=msg
 
