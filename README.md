@@ -4,11 +4,10 @@
 
 [WTFPLv2](http://www.wtfpl.net/about/)
 
-## Deployment
-### PostgreSQL
-- apt-get install libpq-dev
-- bundle
-- apt-get install postgresql-contrib-9.3 (for postgresql-9.3; match version to
-  yours)
-- sudo -u postgres createuser --superuser $USER
-- rake db:setup && rake db:migrate 
+## Development
+
+1. Clone
+2. `bundle install --jobs=4`
+3. Look at `.env.development`, override them using `.env.local` file.
+4. `rake db:create db:migrate`
+5. `rails s`
