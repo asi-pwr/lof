@@ -19,6 +19,7 @@
 class Item < ActiveRecord::Base
   belongs_to :container
   validates :name, presence: true
+  validates :quantity, numericality: { greater_than: 0 }
 
   fuzzily_searchable :name
 end
