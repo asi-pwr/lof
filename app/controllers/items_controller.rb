@@ -6,10 +6,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    #format.json {
+    render json: @item, content_type: "application/json"
+    #, content_type: "application/json"}
   end
 
   def new
-    @item = Item.new
+    @item = Item.new(quantity: 1)
   end
 
   def create
