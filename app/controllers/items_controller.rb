@@ -2,13 +2,18 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    respond_to do |format|
+      format.html { @items }
+      format.json { render json: @items, content_type: "application/json"}
+    end
   end
 
   def show
     @item = Item.find(params[:id])
-    #format.json {
-    render json: @item, content_type: "application/json"
-    #, content_type: "application/json"}
+    respond_to do |format|
+      format.html { @item }
+      format.json { render json: @item, content_type: "application/json"}
+    end
   end
 
   def new
@@ -32,7 +37,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item, notice: 'Item was successfully updated.'
-    else
+    elseg
       render :edit
     end
   end
