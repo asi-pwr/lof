@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 class ItemsController < ApplicationController
+  protect_from_forgery with: :null_session
   def index
     @items = Item.all
     respond_to do |format|
@@ -22,11 +23,18 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to @item
-    else
-      render :new
-    end
+      if(@item.save) 
+        respond_to do |format|
+          format.html { @item }
+          format.json { render json: @item, status: :created, content_type: "application/json"}
+        end
+      else
+        respond_to do |format|
+          format.html { @item }
+          format.json { render json: @item, status: :created, content_type: "application/json"}
+        end
+      end
+
   end
 
   def edit
@@ -37,7 +45,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item, notice: 'Item was successfully updated.'
-    elseg
+    else
       render :edit
     end
   end
