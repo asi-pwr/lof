@@ -1,2 +1,2 @@
 #/usr/bin/env bash
-docker run -p 6666:5432 -e POSTGRES_USER=libros -e POSTGRES_PASSWORD=123 -d postgres
+docker run --name lof -p 5432:5432 -e POSTGRES_USER=lof -e POSTGRES_PASSWORD=lof -d postgres:9.6-alpine

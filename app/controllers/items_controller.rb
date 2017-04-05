@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 class ItemsController < ApplicationController
   protect_from_forgery with: :null_session
+
   public
 
   def index
     @items = Item.all
     respond_to do |format|
       format.html { @items }
-      format.json { render json: @items}
+      format.json { render json: @items }
     end
   end
 
@@ -15,42 +16,41 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     respond_to do |format|
       format.html { @item }
-      format.json { render json: @item}
+      format.json { render json: @item }
     end
   end
 
   def new
     @item = Item.new(quantity: 1)
-  end 
+  end
 
   def create
     @item = Item.new(item_params)
-      if(@item.save) 
-        respond_to do |format|
-          format.html { @item }
-          format.json { render json: @item, status: :created}
-        end
-      else
-          render :new 
-        end
-      end
-
-  end
-
-  def edit
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    @item = Item.find(item_params[:id])
-    if @item.update(item_params)
+    if @item.save
       respond_to do |format|
-        format.html { redirect_to @item, notice: 'Item was successfully updated'}
-        format.json { render json: @item, status: :updated }
+        format.html { @item }
+        format.json { render json: @item, status: :created }
       end
     else
-      render :edit
+      render :new
+      end
+      end
   end
+
+def edit
+  @item = Item.find(params[:id])
+end
+
+def update
+  @item = Item.find(item_params[:id])
+  if @item.update(item_params)
+    respond_to do |format|
+      format.html { redirect_to @item, notice: 'Item was successfully updated' }
+      format.json { render json: @item, status: :updated }
+    end
+  else
+    render :edit
+end
 
   def destroy
     @item = Item.find(params[:id])
@@ -63,9 +63,9 @@ class ItemsController < ApplicationController
     def search
       @results = Item.find_by_fuzzy_name(params[:string], limit: 10)
     end
-end
+  end
 
-  private 
+  private
 
   def item_params
     params.require(:item).permit(:name, :quantity, :container_id)

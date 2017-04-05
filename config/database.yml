@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   host: <%= ENV["DB_HOST"] %>
   port: <%= ENV["DB_PORT"] %>
-  username: libros
-  password: 123
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   timeout: 5000
   encoding: unicode
   pool: 5
