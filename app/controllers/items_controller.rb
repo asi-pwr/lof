@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       respond_to do |format|
@@ -33,24 +34,24 @@ class ItemsController < ApplicationController
       end
     else
       render :new
-      end
-      end
+    end
   end
 
-def edit
-  @item = Item.find(params[:id])
-end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
-def update
-  @item = Item.find(item_params[:id])
-  if @item.update(item_params)
-    respond_to do |format|
-      format.html { redirect_to @item, notice: 'Item was successfully updated' }
-      format.json { render json: @item, status: :updated }
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      respond_to do |format|
+        format.html { redirect_to @item, notice: 'Item was successfully updated' }
+        format.json { render json: @item, status: :ok }
+      end
+    else
+      render :edit
     end
-  else
-    render :edit
-end
+  end
 
   def destroy
     @item = Item.find(params[:id])
@@ -59,13 +60,13 @@ end
       format.html { redirect_to items_path, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
-
-    def search
-      @results = Item.find_by_fuzzy_name(params[:string], limit: 10)
-    end
   end
 
   private
+
+  def search
+    @results = Item.find_by_fuzzy_name(params[:string], limit: 10)
+  end
 
   def item_params
     params.require(:item).permit(:name, :quantity, :container_id)

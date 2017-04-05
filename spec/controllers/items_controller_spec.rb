@@ -13,7 +13,7 @@ RSpec.describe ItemsController, type: :controller do
 
   it 'checks if ItemsController update action responds to JSON' do
     put :update, id: @item.id, item: { name: 'Any Name', quantity: 2, container_id: 3 }, format: :json
-    expect(response).to have_http_status(:updated)
+    expect(response).to have_http_status(:ok)
     expect(response.content_type).to eq('application/json')
   end
 end
