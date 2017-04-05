@@ -57,11 +57,11 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_path, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
 
-    def search
-      @results = Item.find_by_fuzzy_name(params[:string], limit: 10)
-    end
-end
+  def search
+    @results = Item.find_by_fuzzy_name(params[:string], limit: 10)
+  end
 
   private
 
