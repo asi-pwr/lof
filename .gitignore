@@ -20,3 +20,5 @@
 /doc/*
 .yardoc
 .env.local
+
+/config/database.yml

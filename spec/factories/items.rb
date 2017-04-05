@@ -16,7 +16,10 @@
 #  index_items_on_features  (features)
 #
 
-FactoryGirl.define do
+FactoryGirl.define do 
   factory :item do
+    name "random name"
+    quantity 1
+    container_id 1
   end
 end
