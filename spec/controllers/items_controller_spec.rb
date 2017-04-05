@@ -16,4 +16,18 @@ RSpec.describe ItemsController, type: :controller do
     expect(response).to have_http_status(:ok)
     expect(response.content_type).to eq('application/json')
   end
+
+  it 'checks if ItemsController destroy action responds to JSON' do
+    expect(Item.all).to include(@item)
+    delete :destroy, id: @item.id, format: :json
+    expect(response).to have_http_status(:no_content)
+    expect(response.content_type).to eq('application/json')
+    expect(Item.all).not_to include(@item)
+  end
+
+  it 'checks if ItemsController index action responds to JSON' do
+    get :index, format: :json
+    expect(response).to have_http_status(:ok)
+    expect(response.content_type).to eq('application/json')
+  end
 end
